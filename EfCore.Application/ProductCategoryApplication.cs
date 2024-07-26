@@ -20,8 +20,7 @@ public class ProductCategoryApplication:IProductCategoryApplication
         _productCategoryRepository.Create(productCategory);
         _productCategoryRepository.SaveChanges();
     }
-
-    public void Edit(CreateProductCategory command)
+    public void Edit(EditProductCategory command)
     {
         var productCategory = _productCategoryRepository.Get(command.Id);
         if (productCategory == null)

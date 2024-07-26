@@ -40,7 +40,7 @@ public class ProductCategoryRepository : IProductCategoryRepository
             {
                 Id = x.Id,
                 Name = x.Name,
-                CreationDate = x.CreationDate.ToString()
+                CreationDate = x.CreationDate
             });
 
         if (!string.IsNullOrWhiteSpace(name))
