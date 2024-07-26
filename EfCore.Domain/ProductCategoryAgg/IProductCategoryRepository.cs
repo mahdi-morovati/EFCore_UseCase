@@ -1,7 +1,11 @@
+using EfCore.Application.Contracts.ProductCategory;
+
 namespace EfCore.Domain.ProductCategoryAgg;
 
 public interface IProductCategoryRepository
 {
-    ProductCategory Get(int id);
+    void SaveChanges();
     void Create(ProductCategory productCategory);
+    ProductCategory Get(int id);
+    List<ProductCategoryViewModel> Search(string name);
 }

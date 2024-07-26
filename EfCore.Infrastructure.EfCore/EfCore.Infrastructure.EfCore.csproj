@@ -23,8 +23,4 @@
       <ProjectReference Include="..\EfCore.Domain\EfCore.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Repository\" />
-    </ItemGroup>
-
 </Project>
