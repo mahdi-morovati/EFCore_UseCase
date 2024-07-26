@@ -1,7 +1,20 @@
+using EfCore.Application;
+using EfCore.Application.Contracts.ProductCategory;
+using EfCore.Domain.ProductCategoryAgg;
+using EfCore.Infrastructure.EfCore;
+using EfCore.Infrastructure.EfCore.Repository;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
+builder.Services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
+
+builder.Services.AddDbContext<EfContext>(
+    x => x.UseSqlServer(builder.Configuration.GetConnectionString("EFCoreProject")));
 
 var app = builder.Build();
 

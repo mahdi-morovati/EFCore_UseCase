@@ -6,4 +6,10 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\EfCore.Application.Contracts\EfCore.Application.Contracts.csproj" />
+      <ProjectReference Include="..\EfCore.Application\EfCore.Application.csproj" />
+      <ProjectReference Include="..\EfCore.Infrastructure.EfCore\EfCore.Infrastructure.EfCore.csproj" />
+    </ItemGroup>
+
 </Project>
