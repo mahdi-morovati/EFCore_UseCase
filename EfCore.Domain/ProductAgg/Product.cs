@@ -10,12 +10,15 @@ public class Product
     public bool IsRemoved { get; set; }
     public int CategoryId { get; set; }
     public ProductCategory ProductCategory { get; set; }
+    
+    public DateTime CreationDate { get; set; }
 
     public Product(string name, double unitPrice, int categoryId)
     {
         Name = name;
         UnitPrice = unitPrice;
         CategoryId = categoryId;
+        CreationDate = DateTime.Now;
     }
 
     public void Edit(string name, double unitPrice, int categoryId)
