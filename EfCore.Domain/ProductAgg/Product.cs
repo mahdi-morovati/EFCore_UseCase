@@ -1,4 +1,6 @@
-﻿namespace EfCore.Domain;
+﻿using EfCore.Domain.ProductCategoryAgg;
+
+namespace EfCore.Domain.ProductAgg;
 
 public class Product
 {
