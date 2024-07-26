@@ -17,6 +17,11 @@ public class ProductCategoryRepository : IProductCategoryRepository
         return _efContext.ProductsCategories.FirstOrDefault(x => x.Id == id);
     }
 
+    public bool Exists(string name)
+    {
+        return _efContext.ProductsCategories.Any(x => x.Name == name);
+    }
+
     public void Create(ProductCategory productCategory)
     {
         _efContext.ProductsCategories.Add(productCategory);

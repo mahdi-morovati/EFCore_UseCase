@@ -10,11 +10,11 @@ public class ProductCategory
     public DateTime CreationDate { get; set; }
     public List<Product> Products { get; set; }
 
-    public void ProductCategory(string name)
+    public ProductCategory(string name)
     {
         Name = name;
         CreationDate = DateTime.Now;
-        Products = new List<Product>();creat
+        Products = new List<Product>();
     }
 
     public void Edit(string name)
