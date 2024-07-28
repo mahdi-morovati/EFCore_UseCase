@@ -29,6 +29,11 @@ public class ProductCategoryApplication:IProductCategoryApplication
         _productCategoryRepository.SaveChanges();
     }
 
+    public EditProductCategory? GetDetails(int id)
+    {
+        return _productCategoryRepository.GetDetails(id);
+    }
+
     public List<ProductCategoryViewModel> Search(string name)
     {
         return _productCategoryRepository.Search(name);

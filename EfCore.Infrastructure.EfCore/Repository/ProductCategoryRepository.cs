@@ -12,6 +12,15 @@ public class ProductCategoryRepository : IProductCategoryRepository
         _efContext = efContext;
     }
 
+    public EditProductCategory? GetDetails(int id)
+    {
+        return _efContext.ProductsCategories.Select(x => new EditProductCategory
+        {
+            Id = x.Id,
+            Name = x.Name
+        }).FirstOrDefault(x => x.Id == id);
+    }
+
     public ProductCategory Get(int id)
     {
         return _efContext.ProductsCategories.FirstOrDefault(x => x.Id == id);
