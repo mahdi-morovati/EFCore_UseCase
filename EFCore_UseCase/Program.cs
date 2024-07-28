@@ -13,8 +13,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
 builder.Services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
 
-builder.Services.AddDbContext<EfContext>(
-    x => x.UseSqlServer(builder.Configuration.GetConnectionString("EFCoreProject")));
+// builder.Services.AddDbContext<EfContext>(
+//     x => x.UseSqlServer(builder.Configuration.GetConnectionString("EFCoreProject")));
+builder.Services.AddDbContext<EfContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
