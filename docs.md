@@ -4,6 +4,7 @@
 
 24-ProductCategoryAbstractions
 
+**based on Onion Architecture**
 
 
 #### Steps:
@@ -23,15 +24,15 @@
 
 * create Application Contracts Class Library (contain application abstractions)
 
-  ** Application Contracts**
+**Application Contracts**
 
-  * CreateProductCategory (contain Name prop) (something like DTO)
-  * EditProductCategory (contain Id prop). extends CreateProductCategory for get Name prop (something like DTO)
-  * ProductCategoryViewModel (contain Id, Name, CreationDate prop)
+* CreateProductCategory (contain Name prop) (something like DTO)
+* EditProductCategory (contain Id prop). extends CreateProductCategory for get Name prop (something like DTO)
+* ProductCategoryViewModel (contain Id, Name, CreationDate prop)
 
 #### Application Contrasts Layer
 
-* create IProductCategoryApplication interface
+* create IProductCategoryApplication interface (something like Controller interface)
 
 
     void Create (CreateProductCategory command);
@@ -49,8 +50,8 @@
 * in DbContext class OnModelCreating method define mappings.
 * create repositories in Repository directory. implements repository interfaces that defined in Domain Layer
 * create SaveChanges method in IProductCategoryRepository and implements it.
-**Project queries**. (select the columns from tables that we want)
-* create List of ProductCategoryViewModel in IProductCategoryRepository named Search(string name). and implement that
+**Project queries**. (select the columns that we want from tables)
+* create List of ProductCategoryViewModel in IProductCategoryRepository named Search(string name). and implement that in repository within Infrastructure layer.
 
 
 #### Application Layer
@@ -59,3 +60,19 @@
 * implements Create method in ProductCategoryApplication
 * implement Edit method in ProductCategoryApplication
 * implement Search method in ProductCategoryApplication
+
+
+**Register requirements in Program.cs**
+
+    builder.Services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
+    builder.Services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
+    builder.Services.AddDbContext<EfContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+**26-ProductCategoryUI.mp4**
+* create Razor page(Create page).
+* in razor page class get product category data within OnPost method and pass it to ProductCategoryApplication.Create and redirect to list
+* create Edit razor page. get Id in OpGet method and pass it to ProductCategoryApplication
+* create GetDetails in IProductCategoryRepository to get name and id from database. and implement it
+* create GetDetails in IProductCategoryApplication (because use repository here)
+* 

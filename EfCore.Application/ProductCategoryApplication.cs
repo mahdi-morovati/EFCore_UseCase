@@ -22,10 +22,13 @@ public class ProductCategoryApplication:IProductCategoryApplication
     }
     public void Edit(EditProductCategory command)
     {
+        // here use repository so change tracker can save model data
         var productCategory = _productCategoryRepository.Get(command.Id);
         if (productCategory == null)
              return;
         productCategory.Edit(command.Name);
+        
+        // because we used repository its data exists in change tracker so when we call SaveChanges() it will be saved in database.
         _productCategoryRepository.SaveChanges();
     }
 
