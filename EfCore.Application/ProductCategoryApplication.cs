@@ -41,4 +41,9 @@ public class ProductCategoryApplication:IProductCategoryApplication
     {
         return _productCategoryRepository.Search(name);
     }
+
+    public List<ProductCategoryViewModel> GetAll()
+    {
+        return _productCategoryRepository.GetAll();
+    }
 }

@@ -59,4 +59,13 @@ public class ProductCategoryRepository : IProductCategoryRepository
 
         return query.OrderByDescending(x => x.Id).ToList();
     }
+
+    public List<ProductCategoryViewModel> GetAll()
+    {
+        return _efContext.ProductsCategories.Select(x => new ProductCategoryViewModel
+        {
+            Id = x.Id,
+            Name = x.Name
+        }).ToList();
+    }
 }

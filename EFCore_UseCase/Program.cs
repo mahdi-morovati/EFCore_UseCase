@@ -1,5 +1,7 @@
 using EfCore.Application;
+using EfCore.Application.Contracts.Product;
 using EfCore.Application.Contracts.ProductCategory;
+using EfCore.Domain.ProductAgg;
 using EfCore.Domain.ProductCategoryAgg;
 using EfCore.Infrastructure.EfCore;
 using EfCore.Infrastructure.EfCore.Repository;
@@ -12,6 +14,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
 builder.Services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
+builder.Services.AddTransient<IProductApplication, ProductApplication>();
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
 
 // builder.Services.AddDbContext<EfContext>(
 //     x => x.UseSqlServer(builder.Configuration.GetConnectionString("EFCoreProject")));
