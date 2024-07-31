@@ -52,7 +52,7 @@ public class ProductRepository:IProductRepository
             Name = x.Name,
             UnitPrice = x.UnitPrice,
             IsRemoved = x.IsRemoved,
-            // CreationDate = x.CreationDate,
+            CreationDate = x.CreationDate.ToString(),
             Category = x.ProductCategory.Name
         });
 
